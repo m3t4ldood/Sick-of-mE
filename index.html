@@ -4,133 +4,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spotify Band Website</title>
-</head>
-<style>
-  html, body, div, p, h1, h2, h3, ul, li {
-  margin: 0;
-  padding: 0;
-}
+  <style>
+    html, body, div, p, h1, h2, h3, ul, li {
+      margin: 0;
+      padding: 0;
+    }
 
-/* Set default font family and color */
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
+    /* Set default font family and color */
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
 
-/* Style the header */
-.header {
-  background-color: rgb(0, 0, 0);
-  padding: 20px;
-  text-align: center;
-}
+    /* Style the header */
+    .header {
+      background-color: rgb(0, 0, 0);
+      padding: 20px;
+      text-align: center;
+    }
 
-.header h1 {
-  color: rgb(255, 0, 0);
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    .header h1 {
+      color: rgb(255, 0, 0);
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
 
-.header p {
-  color: #fff;
-  font-size: 18px;
-}
+    .header p {
+      color: #fff;
+      font-size: 18px;
+    }
 
-/* Style the navigation menu */
-.navbar {
-  background-color: #333;
-  padding: 10px;
-}
+    /* Style the navigation menu */
+    .navbar {
+      background-color: #333;
+      padding: 10px;
+    }
 
-.navbar ul {
-  list-style-type: none;
-  text-align: center;
-}
+    .navbar ul {
+      list-style-type: none;
+      text-align: center;
+    }
 
-.navbar ul li {
-  display: inline-block;
-  margin-right: 20px;
-}
+    .navbar ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
 
-.navbar ul li a {
-  color: rgb(133, 0, 0);
-  text-decoration: none;
-  font-size: 20px;
-}
+    .navbar ul li a {
+      color: rgb(133, 0, 0);
+      text-decoration: none;
+      font-size: 20px;
+    }
 
-.navbar ul li a:hover {
-  color: red;
-}
+    .navbar ul li a:hover {
+      color: red;
+    }
 
-/* Style the main content */
-.container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-}
+    /* Style the main content */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
 
-.band-info {
-  background-color: #f4f4f4;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
+    .band-info {
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
 
-.band-info h2 {
-  color: #333;
-  margin-bottom: 10px;
-}
+    .band-info h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
 
-.band-info p {
-  color: #666;
-}
+    .band-info p {
+      color: #666;
+    }
 
-.albums {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
-}
+    .albums {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
+    }
 
-.album {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .album {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-.album img {
-  width: 100%;
-  border-radius: 5px;
-}
+    .album img {
+      width: 100%;
+      border-radius: 5px;
+    }
 
-.album h3 {
-  color: #333;
-  margin-top: 10px;
-}
+    .album h3 {
+      color: #333;
+      margin-top: 10px;
+    }
 
-.album p {
-  color: #666;
-}
+    .album p {
+      color: #666;
+    }
 
-/* Footer styles */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
+    /* Footer styles */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-.footer p {
-  font-size: 14px;
-}
+    .footer p {
+      font-size: 14px;
+    }
+
+    /* Style for YouTube iframes */
+    .video {
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
   </style>
+</head>
 <body>
   <!-- Header -->
   <header class="header">
-    <h1>S̥̜̮̙̬̘̫̗i̩̙̥̠̪̙̮̟c̬̙̙̜̬̜̩̜̘̭k̬̦̩̗̘̖̗̫̟̗̭̖̪ ̠̦̗̮̥̬̬̖̤̗̭̠o̦̠̠̗̫̤̙̪̖̭̞̗̦̜f̖̜̤̥̖̭̤̩̥̬ ̥̭̞̥̮̜̞̞m̟̬̩̬̝̠̟̬̥̥E̬̘̥̠̘̝̦</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+    <h1>S̥̜̮̙̬̘̫̗i̩̙̥̠̪̙̮̟c̬̙̙̜̬̜̩̜̘̭̗̭̖̪ ̠̦̗̮̥̬̬̖̤̗̭̠o̦̠̠̗̫̤̙̪̖̭̞̗̦̜f̖̜̤̥̖̭̤̩̥̬ ̥̭̞̥̮̜̞̞m̟̬̩̬̝̠̟̬̥̥E̬̘̥̠̘̝̦</h1>
+    <br><br><br><br>
     <p>to all my fiends...</p>
   </header>
 
@@ -149,61 +158,66 @@ body {
   <!-- Main Content -->
   <div class="container" id="mainContent">
     <section class="landing-page" id="homePage">
-      
+      <!-- Home content -->
     </section>
 
     <!-- About Section -->
     <section class="band-info" id="aboutPage" style="display: none;">
-      <!-- Navigation Menu -->
       <h2>About Us</h2>
-      <img src='https://i.postimg.cc/QMzw7vZy/71-S5-P50-PMx-L-AC-SX569.jpg' border='0' alt='☠️'/></a>
+      <img src='https://i.postimg.cc/QMzw7vZy/71-S5-P50-PMx-L-AC-SX569.jpg' border='0' alt='☠️'/>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus mauris nec eros sodales, nec laoreet est efficitur.</p>
     </section>
 
     <!-- Music Section -->
     <section class="albums" id="musicPage" style="display: none;">
       <div class="album">
-        <!-- Navigation Menu -->
         <img src='https://i.postimg.cc/6qRXmXMb/Screenshot-2024-04-25-235830.png' alt="Album 1">
         <h3>DenO</h3>
         <p>5 track demo</p>
-        <ul><li>
-          1. Bad for you<br>2. My Shadow<br>3.<br>4.
-          </li></ul>
+        <ul>
+          <li>1. Bad for you<br>2. My Shadow<br>3.<br>4.</li>
+        </ul>
       </div>
       <div class="album">
-        <img src='  ' alt="Album 2">
+        <img src='' alt="Album 2">
         <h3>🎶SoundCloud☁️</h3>
         <p>https://soundcloud.com/sickofmemusick</p>
         <h3>🎶SoundClick👆</h3>
         <p>https://www.soundclick.com/sickofme</p>
       </div>
-      <!-- Add more albums here -->
     </section>
-      <!-- Lyrics Section -->
+
+    <!-- Lyrics Section -->
     <section class="band-info" id="lyricsPage" style="display: none;">
       <h1>My lyrics</h1>
-
-    <h1>am I dead yet</h1><!-- Replace 'your-text-file.txt' with the path to your .txt file -->
-    <iframe src="1. am i dead yet.txt" width="100%" height="200"></iframe>
-    <h1>bad for you</h1>
-    <iframe src="2. bad for you.txt" width="100%" height="200"></iframe>
-    <h1>Broken Star</h1>
-    <iframe src="3. Broken Star.txt" width="100%" height="200"></iframe>
-    <h1>buried</h1>
-    <iframe src="4. buried.txt" width="100%" height="200"></iframe>
-    <h1>candlelight</h1>
-    <iframe src="5. candlelight.txt" width="100%" height="200"></iframe>
-    <h1>dark alley</h1>
-    <iframe src="6. dark alley.txt" width="100%" height="200"></iframe>
-    <h1>dead wait</h1>
-    <iframe src="7. dead wait.txt" width="100%" height="200"></iframe>
-    
+      <h1>am I dead yet</h1>
+      <iframe src="1. am i dead yet.txt" width="100%" height="200"></iframe>
+      <h1>bad for you</h1>
+      <iframe src="2. bad for you.txt" width="100%" height="200"></iframe>
+      <h1>Broken Star</h1>
+      <iframe src="3. Broken Star.txt" width="100%" height="200"></iframe>
+      <h1>buried</h1>
+      <iframe src="4. buried.txt" width="100%" height="200"></iframe>
+      <h1>candlelight</h1>
+      <iframe src="5. candlelight.txt" width="100%" height="200"></iframe>
+      <h1>dark alley</h1>
+      <iframe src="6. dark alley.txt" width="100%" height="200"></iframe>
+      <h1>dead wait</h1>
+      <iframe src="7. dead wait.txt" width="100%" height="200"></iframe>
     </section>
-    <!-- Events Section -->
-    <section class="band-info" id="eventsPage" style="display: none;">
-      <h2>Events</h2>
-      <p>No events currently scheduled.</p>
+
+    <!-- Videos Section -->
+    <section class="band-info" id="videosPage" style="display: none;">
+      <h2>Latest Videos</h2>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/VYohlDGAptA?si=pV7LP2qfk6P6-jJe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/16mZUV0BRk4?si=4IYe73AjIYvs3UBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/IoPmVuD26_0?si=95RkHRH7Y4XMMNc1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </section>
 
     <!-- Contact Section -->
@@ -217,23 +231,24 @@ body {
   <footer class="footer">
     <p>&copy; 2024 Band Name. All rights reserved.</p>
   </footer>
-</body>
-<script>
-  function showPage(pageName) {
-    // Hide all sections
-    var sections = document.getElementsByClassName('band-info');
-    for (var i = 0; i < sections.length; i++) {
-      sections[i].style.display = 'none';
-    }
 
-    // Show the selected section
-    var selectedPage = document.getElementById(pageName + 'Page');
-    selectedPage.style.display = 'block';
+  <script>
+    function showPage(pageName) {
+      // Hide all sections
+      var sections = document.getElementsByClassName('band-info');
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+      }
 
-    // Hide the albums section if it's not the Music section
-    if (pageName !== 'music') {
-      document.getElementById('musicPage').style.display = 'none';
+      // Show the selected section
+      var selectedPage = document.getElementById(pageName + 'Page');
+      selectedPage.style.display = 'block';
+
+      // Hide the albums section if it's not the Music section
+      if (pageName !== 'music') {
+        document.getElementById('musicPage').style.display = 'none';
+      }
     }
-  }
   </script>
+</body>
 </html>
