@@ -3,147 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spotify Band Website</title>
+  <title>Sick of mE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    html, body, div, p, h1, h2, h3, ul, li {
-      margin: 0;
-      padding: 0;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
 
-    /* Set default font family and color */
     body {
-      font-family: Arial, sans-serif;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      color: #ddd;
+      line-height: 1.6;
     }
 
-    /* Style the header */
     .header {
-      background-color: rgb(0, 0, 0);
-      padding: 20px;
+      background: #000;
+      padding: 40px 20px;
       text-align: center;
+      border-bottom: 2px solid red;
     }
-
     .header h1 {
-      color: rgb(255, 0, 0);
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .header p {
-      color: #fff;
-      font-size: 18px;
-    }
-
-    /* Style the navigation menu */
-    .navbar {
-      background-color: #333;
-      padding: 10px;
-    }
-
-    .navbar ul {
-      list-style-type: none;
-      text-align: center;
-    }
-
-    .navbar ul li {
-      display: inline-block;
-      margin-right: 20px;
-    }
-
-    .navbar ul li a {
-      color: rgb(133, 0, 0);
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    .navbar ul li a:hover {
+      font-family: 'Bebas Neue', sans-serif;
       color: red;
-    }
-
-    /* Style the main content */
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-
-    .band-info {
-      background-color: #f4f4f4;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-
-    .band-info h2 {
-      color: #333;
+      font-size: 4rem;
+      letter-spacing: 2px;
       margin-bottom: 10px;
     }
-
-    .band-info p {
-      color: #666;
+    .header p {
+      color: #aaa;
+      font-size: 1.2rem;
     }
 
-    .albums {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      grid-gap: 20px;
+    .navbar {
+      background: #111;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
     }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+    }
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: red;
+      transition: width 0.3s ease;
+    }
+    .navbar a:hover::after { width: 100%; }
+    .navbar a:hover { color: red; }
 
-    .album {
-      background-color: #fff;
-      border-radius: 5px;
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 40px;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .band-info, .album {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
+    .band-info h2, .album h3 {
+      color: red;
+      font-family: 'Bebas Neue', sans-serif;
+      margin-bottom: 10px;
     }
 
     .album img {
       width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .album img:hover { transform: scale(1.05); }
+
+    iframe {
+      border: none;
       border-radius: 5px;
-    }
-
-    .album h3 {
-      color: #333;
-      margin-top: 10px;
-    }
-
-    .album p {
-      color: #666;
-    }
-
-    /* Footer styles */
-    .footer {
-      background-color: #333;
+      background: #000;
       color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .footer p {
-      font-size: 14px;
-    }
-
-    /* Style for YouTube iframes */
-    .video {
-      margin-bottom: 20px;
-      max-width: 100%;
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 10px rgba(255,0,0,0.5);
     }
 
     .video iframe {
       width: 100%;
       height: 315px;
-      border: none;
+      border-radius: 8px;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+      background: #1e1e1e;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 12px 15px;
+      text-align: center;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    th {
+      background: #111;
+      color: red;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+
+    tr:nth-child(even) td { background: #2a2a2a; }
+    tr:hover td { background: #333; }
+
+    .footer {
+      background: #000;
+      color: #888;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid red;
+    }
+
+    input {
+      width: 95%;
+      padding: 5px;
+      background: #000;
+      color: #fff;
+      border: 1px solid red;
+      border-radius: 4px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
-    <h1>S̥̜̮̙̬̘̫̗i̩̙̥̠̪̙̮̟c̬̙̙̜̬̜̩̜̘̭̗̭̖̪ ̠̦̗̮̥̬̬̖̤̗̭̠o̦̠̠̗̫̤̙̪̖̭̞̗̦̜f̖̜̤̥̖̭̤̩̥̬ ̥̭̞̥̮̜̞̞m̟̬̩̬̝̠̟̬̥̥E̬̘̥̠̘̝̦</h1>
+    <h1>S̥̜̮̙̬̘̫̗i̩̙̥̠̪̙̮̟c̬̙̙̜̬̜̩̜̘̭̗̭̖̪k̗̮̥̬̬̖̤̗̭̠ o̦̠̠̗̫̤̙̪̖̭̞̗̦̜f̖̜̤̥̖̭̤̩̥̬ ̥̭̞̥̮̜̞̞m̟̬̩̬̝̠̟̬̥̥E̬̘̥̠̘̝̦</h1>
     <br><br><br><br>
     <p>to all my fiends...</p>
   </header>
 
-  <!-- Navigation Menu -->
   <nav class="navbar">
     <ul>
       <li><a href="#" onclick="showPage('home')">Home</a></li>
@@ -151,106 +179,173 @@
       <li><a href="#" onclick="showPage('music')">Music</a></li>
       <li><a href="#" onclick="showPage('lyrics')">Lyrics</a></li>
       <li><a href="#" onclick="showPage('videos')">Videos</a></li>
+      <li><a href="#" onclick="showPage('schedule')">Schedule</a></li>
       <li><a href="#" onclick="showPage('contact')">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Main Content -->
   <div class="container" id="mainContent">
-    <section class="landing-page" id="homePage">
-      <!-- Home content -->
-    </section>
+    <section class="landing-page" id="homePage"></section>
 
-    <!-- About Section -->
     <section class="band-info" id="aboutPage" style="display: none;">
       <h2>About Us</h2>
-      <img src='https://i.postimg.cc/QMzw7vZy/71-S5-P50-PMx-L-AC-SX569.jpg' border='0' alt='☠️'/>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus mauris nec eros sodales, nec laoreet est efficitur.</p>
+      <img src='https://i.postimg.cc/QMzw7vZy/71-S5-P50-PMx-L-AC-SX569.jpg' alt='☠️' style="max-width:250px; border-radius:8px; margin-bottom:15px;"/>
+      <p>Born in <strong>Phoenix, AZ</strong> and forged in the gray skies of <strong>Seattle</strong> since 2013, 
+      <span class="band-name">Sick of mE</span> is the sound of monotony, madness, and everything in between. 
+      A one-man project that blurs the line between <em>rock, punk, and metal</em>, Sick of mE channels raw 
+      emotion into riffs that are heavy but never overbearing, melodic yet jagged, cathartic without pretense.</p>
+      <p>The lyrics lean <em>self-deprecating</em>, circling around themes of death, decay, and the surreal 
+      comedy of suburban dystopia. It’s the soundtrack to feeling stuck in loops you can’t escape, 
+      staring down the absurdity of modern life while laughing through the spiral.</p>
+      <p>Musically, Sick of mE avoids the clichés of extreme metal—<strong>no blast beats, no throat-shredding growls</strong>—just a gritty fusion that lives somewhere between the alternative edge of 
+      <strong>Smashing Pumpkins</strong>, the intensity of <strong>Slipknot</strong>, and the bittersweet weight of what could only be described as <em>emo dad rock</em>.</p>
     </section>
 
-    <!-- Music Section -->
     <section class="albums" id="musicPage" style="display: none;">
       <div class="album">
-        <img src='https://i.postimg.cc/6qRXmXMb/Screenshot-2024-04-25-235830.png' alt="Album 1">
-        <h3>DenO</h3>
+        <img src="https://i.postimg.cc/6qRXmXMb/Screenshot-2024-04-25-235830.png" alt="Sick of mE Album Artwork">
+        <h3>DemO</h3>
         <p>3 track demo</p>
         <h1>to all my fiends...</h1>
-    <ul>
-        <li><a href="music/Am I Dead Yet (InstruMETAL).mp3" download>Am I Dead Yet (InstruMETAL)</a></li>
-        <li><a href="music/Broken Star (InstruMETAL).mp3" download>Broken Star (InstruMETAL)</a></li>
-        <li><a href="music/Buried (InstruMETAL).mp3" download>Buried (InstruMETAL)</a></li>
-    </ul>
+        <ul>
+          <li><a href="music/Am I Dead Yet (InstruMETAL).mp3" download>Am I Dead Yet (InstruMETAL)</a></li>
+          <li><a href="music/Broken Star (InstruMETAL).mp3" download>Broken Star (InstruMETAL)</a></li>
+          <li><a href="music/Buried (InstruMETAL).mp3" download>Buried (InstruMETAL)</a></li>
+        </ul>
       </div>
       <div class="album">
-        <img src='' alt="Album 2">
         <h3>🎶SoundCloud☁️</h3>
-        <p>https://soundcloud.com/sickofmemusick</p>
+        <p><a href="https://soundcloud.com/sickofmemusick" target="_blank">Visit my SoundCloud</a></p>
         <h3>🎶SoundClick👆</h3>
-        <p>https://www.soundclick.com/sickofme</p>
+        <p><a href="https://www.soundclick.com/sickofme" target="_blank">Visit my SoundClick</a></p>
       </div>
     </section>
 
-    <!-- Lyrics Section -->
     <section class="band-info" id="lyricsPage" style="display: none;">
       <h1>My lyrics</h1>
-      <h1>am I dead yet</h1>
-      <iframe src="1. am i dead yet.txt" width="100%" height="200"></iframe>
-      <h1>bad for you</h1>
+      <h2>Am I Dead Yet</h2>
+      <iframe src="lyrivs/1. am i dead yet.txt" width="100%" height="200"></iframe>
+      <h2>Bad For You</h2>
       <iframe src="2. bad for you.txt" width="100%" height="200"></iframe>
-      <h1>Broken Star</h1>
+      <h2>Broken Star</h2>
       <iframe src="3. Broken Star.txt" width="100%" height="200"></iframe>
-      <h1>buried</h1>
+      <h2>Buried</h2>
       <iframe src="4. buried.txt" width="100%" height="200"></iframe>
-      <h1>candlelight</h1>
+      <h2>Candlelight</h2>
       <iframe src="5. candlelight.txt" width="100%" height="200"></iframe>
-      <h1>dark alley</h1>
+      <h2>Dark Alley</h2>
       <iframe src="6. dark alley.txt" width="100%" height="200"></iframe>
-      <h1>dead wait</h1>
+      <h2>Dead Wait</h2>
       <iframe src="7. dead wait.txt" width="100%" height="200"></iframe>
     </section>
 
-    <!-- Videos Section -->
     <section class="band-info" id="videosPage" style="display: none;">
       <h2>Latest Videos</h2>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/VYohlDGAptA?si=pV7LP2qfk6P6-jJe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VYohlDGAptA" allowfullscreen></iframe>
       </div>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/16mZUV0BRk4?si=4IYe73AjIYvs3UBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/16mZUV0BRk4" allowfullscreen></iframe>
       </div>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/IoPmVuD26_0?si=95RkHRH7Y4XMMNc1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/IoPmVuD26_0" allowfullscreen></iframe>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <section class="band-info" id="schedulePage" style="display: none;">
+      <h2>Band Schedule</h2>
+      <table id="schedule">
+        <caption>Weekly Practice & Studio Time</caption>
+        <tr>
+          <th>Record</th>
+          <th>Mon</th>
+          <th>Tues</th>
+          <th>Wed</th>
+          <th>Thurs</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+        </tr>
+        <tr>
+          <th>Guitar</th>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Bass</th>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Drums</th>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Vocals</th>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Studio</th>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+      </table>
+    </section>
+
     <section class="band-info" id="contactPage" style="display: none;">
       <h2>Contact Us</h2>
-      <p>Email: m3t4ldood@gmail.com<br>Phone: 123-456-7890</p>
+      <p>Email: <a href="mailto:m3t4ldood@gmail.com">m3t4ldood@gmail.com</a><br>Phone: 123-456-7890</p>
     </section>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2024 Band Name. All rights reserved.</p>
+    <p>&copy; 2025 Sick of mE & M3t4ldooD. All Rights Reserved.</p>
   </footer>
 
   <script>
     function showPage(pageName) {
-      // Hide all sections
-      var sections = document.getElementsByClassName('band-info');
-      for (var i = 0; i < sections.length; i++) {
-        sections[i].style.display = 'none';
+      document.querySelectorAll('.container section').forEach(s => s.style.display = 'none');
+      let page = document.getElementById(pageName + 'Page');
+      if (page) page.style.display = 'block';
+    }
+    showPage('home');
+
+    // Band Schedule Editing
+    const scheduleTable = document.getElementById("schedule");
+    if (scheduleTable) {
+      for (let r = 1; r < scheduleTable.rows.length; r++) {
+        for (let c = 1; c < scheduleTable.rows[r].cells.length; c++) {
+          let key = `cell-${r}-${c}`;
+          let saved = localStorage.getItem(key);
+          if (saved) scheduleTable.rows[r].cells[c].textContent = saved;
+        }
       }
 
-      // Show the selected section
-      var selectedPage = document.getElementById(pageName + 'Page');
-      selectedPage.style.display = 'block';
+      scheduleTable.addEventListener("click", function(e) {
+        let cell = e.target;
+        if (cell.tagName === "TD") {
+          let oldText = cell.textContent;
+          let input = document.createElement("input");
+          input.type = "text";
+          input.value = oldText;
+          cell.textContent = "";
+          cell.appendChild(input);
+          input.focus();
 
-      // Hide the albums section if it's not the Music section
-      if (pageName !== 'music') {
-        document.getElementById('musicPage').style.display = 'none';
-      }
+          input.onblur = function() {
+            let newText = this.value.trim();
+            cell.removeChild(input);
+            cell.textContent = newText;
+
+            let row = cell.parentNode.rowIndex;
+            let col = cell.cellIndex;
+            let key = `cell-${row}-${col}`;
+
+            if (newText) {
+              localStorage.setItem(key, newText);
+            } else {
+              localStorage.removeItem(key);
+            }
+          };
+        }
+      });
     }
   </script>
 </body>
